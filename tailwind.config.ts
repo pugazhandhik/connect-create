@@ -57,6 +57,13 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        gd: {
+          sage: "hsl(var(--gd-sage))",
+          forest: "hsl(var(--gd-forest))",
+          mint: "hsl(var(--gd-mint))",
+          cream: "hsl(var(--gd-cream))",
+          dark: "hsl(var(--gd-dark))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
