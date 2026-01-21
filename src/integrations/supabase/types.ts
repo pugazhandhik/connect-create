@@ -14,6 +14,35 @@ export type Database = {
   }
   public: {
     Tables: {
+      gd_sessions: {
+        Row: {
+          id: string
+          room_id: string
+          started_at: string
+          status: string
+        }
+        Insert: {
+          id?: string
+          room_id: string
+          started_at?: string
+          status?: string
+        }
+        Update: {
+          id?: string
+          room_id?: string
+          started_at?: string
+          status?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "gd_sessions_room_id_fkey"
+            columns: ["room_id"]
+            isOneToOne: true
+            referencedRelation: "rooms"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       messages: {
         Row: {
           content: string
@@ -133,6 +162,38 @@ export type Database = {
         Relationships: [
           {
             foreignKeyName: "signaling_room_id_fkey"
+            columns: ["room_id"]
+            isOneToOne: false
+            referencedRelation: "rooms"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      waiting_room: {
+        Row: {
+          display_name: string
+          id: string
+          joined_at: string
+          participant_id: string
+          room_id: string
+        }
+        Insert: {
+          display_name: string
+          id?: string
+          joined_at?: string
+          participant_id: string
+          room_id: string
+        }
+        Update: {
+          display_name?: string
+          id?: string
+          joined_at?: string
+          participant_id?: string
+          room_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "waiting_room_room_id_fkey"
             columns: ["room_id"]
             isOneToOne: false
             referencedRelation: "rooms"

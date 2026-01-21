@@ -65,7 +65,7 @@ const Index = () => {
         roomId = newRoom.id;
       }
 
-      navigate(`/room/${roomCode}?name=${encodeURIComponent(displayName)}&roomId=${roomId}`);
+      navigate(`/waiting/${roomCode}?name=${encodeURIComponent(displayName)}&roomId=${roomId}`);
     } catch (error) {
       console.error('Error joining room:', error);
       toast({
